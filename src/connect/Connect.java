@@ -27,7 +27,6 @@ public class Connect {
 		Statement st= conn.createStatement();
 		try {
 			rs = st.executeQuery(sql);
-			
 			return rs;
 		} catch (Exception e) {
 			System.out.println(e);}

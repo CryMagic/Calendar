@@ -64,38 +64,17 @@ public class RegisterServlet extends HttpServlet {
 
 		String sql = "insert into account(username,password,gender,fullname,email,phone,role,status,block) values('" + username + "','"+password+
 				"','"+gender+"','"+fullname+"','"+email+"','"+phone+"','"+0+"','"+0+"','"+0+"') ";
-		String err = "";
 		
-		if (username.equals("") || password.equals("")|| email.equals("")|| fullname.equals("")|| phone.equals("")) {
-			err += "Nhập thông tin đầy đủ";
-		}else{
-			if(userDao.CheckUserExists(username))
-			{
-				err+="Tài khoản đã tồn tại";
-			}else{
-				Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-				Matcher matcher = pattern.matcher(email);
-				if(!matcher.matches()){
-					err+="Email không hợp lệ!";
-				}
-			}
-		}
-		if (err.length() > 0) {
-			request.setAttribute("err", err);
-		}
+		String notify = "Đăng ký tài khoản thành công !";
 		try{
-			if (err.length() == 0){
-				int kq=conn.Update(sql);
-				url="/home.jsp";
-			}
-			else{
-				url="/index.jsp";
-			}
+			int kq=conn.Update(sql);
+			url="index.jsp";
+			request.setAttribute("notify", notify);
 			RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 			rd.forward(request, response);
 		}catch (Exception e){
 			e.printStackTrace();
-			response.sendRedirect("/index.jsp");
+			response.sendRedirect("index.jsp");
 		}
 	}
 }

@@ -46,10 +46,6 @@
 							class="hidden-sm hidden-xs">Thêm mới</span></a>
 							
 					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2" id="add-event">
-						<a href="page-search.jsp" class="btn btn-primary">Tìm kiếm <i class="glyphicon glyphicon-arrow-right"></i></a>
-							
-					</div>
 					
 				</div>
 				

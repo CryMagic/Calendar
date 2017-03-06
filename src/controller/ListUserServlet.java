@@ -42,7 +42,7 @@ public class ListUserServlet extends HttpServlet {
 		try {
 			rs = conn.GetData(sql);
 			request.setAttribute("listuser", rs);
-			//rs.next();
+			System.out.println(rs);
 			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("admin-list.jsp");
 			rd.forward(request, response);

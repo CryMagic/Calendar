@@ -21,16 +21,6 @@
   	<link rel="stylesheet" href="plugins/fullcalendar/fullcalendar.print.css" media="print">
   	
   	<style>
-  		.main-header{
-  			position: fixed;
-		    top:0; left:0;
-		    width: 100%;
-  		}
-  		#fullcalendar{
-  			position: fixed;
-		    right:50%;
-		    left:5%;
-  		}
   		body{
 			background: url("dist/img/calendar-background.jpg");
 			-webkit-background-size: cover;
@@ -38,39 +28,14 @@
 			-o-background-size: cover;
 			background-size: cover;
 		}
-  		div#fullcalendar{
-			-webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
-			-moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
-			box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
-		    border: 1px solid #2196F3;
-		    background:  #ededed;
-		    
-		}
-		#fullcalendar .fc-toolbar{
-			background:#1E88E5;
-		}
-		#fullcalendar .fc-center h2{
-			text-transform:uppercase;
-		}
-		#fullcalendar .fc-unthemed .fc-today{
-			background: lightgray;
-		}
-		div#fullcalendar .fc-view-controller> .fc-view>table{
-			height:350px;
-		}
-		#form-tranparent{
-			  background: rgba(0, 0, 0, 0.1);
-			  border: 1px solid #e3e3e3;
-			  border-radius: 4px;
-			  color:#ffffff
-		}
   	</style>
 </head>
-<body class="hold-transition skin-blue">
+<body class="hold-transition skin-blue" id="index-background">
 	<% if(session.getAttribute("username") != null){
 		response.sendRedirect("home.jsp");
 	} 
 	%>
+	<div class="container">
 	<header class="main-header">
 		<!-- Logo -->
 		<a href="index.jsp" class="logo"> 
@@ -90,26 +55,19 @@
 							<span class="hidden-xs">Đăng Nhập</span>
 						</a>
 					</li>
-					<li class="dropdown user user-menu">
-						<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#ModalDangKy"> 
-							<img src="dist/img/register.png" class="user-image"> <span class="hidden-xs">Đăng Ký</span>
-						</a>
-					</li>
 				</ul>
 			</div>
 		</nav>
 	</header>
-	
+	</div>
 	<div class="container">
 		<div style="padding:40px"></div>
 		<div class="modal fade" id="ModalDangNhap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 	    	<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header" align="center">
-						<img class="img-circle" id="img_logo" src="dist/img/icon-login.png">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-						</button>
+						<img class="img-circle text-center" id="img_logo" src="dist/img/avatar_login.png">
+						
 					</div>
 	                
 	                <!-- Begin # DIV Form -->
@@ -152,11 +110,7 @@
 	        		    	</div>
 					        <div class="modal-footer">
 	                            <div>
-	                                <button type="submit" class="btn btn-primary btn-lg btn-block">Đăng nhập</button>
-	                            </div>
-					    	    <div>
-	                                <button id="login_lost_btn" type="button" class="btn btn-link">Quên mật khẩu?</button>
-	                                <button id="login_register_btn" data-toggle="modal" data-target="#ModalRegister" type="button" class="btn btn-link">Đăng ký</button>
+	                                <button type="submit" class="btn btn-success btn-lg btn-block">Đăng nhập</button>
 	                            </div>
 					        </div>
 	                    </form>
@@ -173,12 +127,13 @@
 				
 			</div>
 			<div class="col-sm-4 col-sm-offset-1">
-				<div id="form-tranparent" class="panel panel-primary">
+				<div class="panel panel-primary form-tranparent">
 					<div class="panel-body">
 						<form id="FormRegister" method="POST" action="RegisterServlet" role="form">
 							<div class="form-group">
 								<h2 class="text-center">Đăng ký tài khoản</h2>
 							</div>
+							
 							<div class="form-group">
 								<label class="control-label" for="signupName">Tên tài khoản</label>
 								<input type="text" id="username" placeholder="Nhập tên tài khoản" class="form-control" name="username">

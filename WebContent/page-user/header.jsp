@@ -39,8 +39,13 @@
         </a>
 
         <div class="navbar-custom-menu">
+          <form class="navbar-form navbar-left text-center" style="margin-left:auto;margin-right:auto">
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Nhập từ khóa tìm kiếm">
+	        </div>
+	        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+	      </form>
           <ul class="nav navbar-nav">
-            
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="dist/img/avatar.png" class="user-image" alt="User Image">
