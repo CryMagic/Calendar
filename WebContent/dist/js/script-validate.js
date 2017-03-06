@@ -168,22 +168,30 @@ $(document).ready(function(){
 		},1000)
 		
 	});
-//	$("#FormRegister #username").on('focusout',function(event){
-//		event.preventDefault();
-//		var username = $('#username').val();
-//		$.ajax({
-//			url: "CheckUsernameUnique?username=" + username,
-//			data: {username: username },
-//			dataType: "json",
-//			type: "post",
-//			success: function (response) {
-//				
-//				if(response == false){
-////					$('#check-user').text('Tên tài khoản đã tồn tại').css('color','red').show();
-//					alert(response);
-//				}						
-//			}
-//		
-//		})
-//	})
+	$("#FormRegister #username").focus(function(){
+		$('#check-username').hide();
+	})
+	$("#FormRegister #username").on('focusout',function(event){
+//		alert(111);
+		event.preventDefault();
+		var username = $('#username').val();
+		$.ajax({
+			url: "CheckUsernameUnique?username=" + username,
+			data: {username: username },
+			dataType: "json",
+			type: "post",
+			success: function (response) {
+				if(response == true){
+					
+					$('#check-username').show();
+					$('#check-username').parent().removeClass('has-success');
+					$('#check-username').parent().addClass('has-error');
+					$('#check-username').text('Tên tài khoản đăng ký đã tồn tại');
+					
+				}						
+			}
+		
+		})
+		
+	})
 })

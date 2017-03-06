@@ -6,8 +6,8 @@
 <%@ page language="java" import = "connect.*,java.util.*" session="true" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Quản Lý Lịch</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Quản Lý Lịch</title>
 	<!-- Bootstrap 3.3.6 -->
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<!-- Font Awesome -->
@@ -182,7 +182,7 @@
 							<div class="form-group">
 								<label class="control-label" for="signupName">Tên tài khoản</label>
 								<input type="text" id="username" placeholder="Nhập tên tài khoản" class="form-control" name="username">
-								<label id="check-username" style="display:none" class="error" for="username">Bạn chưa nhập tên tài khoản</label>
+								<label id="check-username" style="display:none" class="error" ></label>
 							</div>
 							<div class="form-group">
 								<label class="control-label" for="signupPassword">Mật khẩu</label>
@@ -201,13 +201,13 @@
 								<label class="control-label" for="signupName">Giới tính</label>
 								<div class="radio">
 								  	<label>
-								    	<input type="radio" name="gender" id="optionsRadios1" checked>
+								    	<input type="radio" name="gender" id="optionsRadios1" value="1" checked>
 								    	Nam
 								  	</label>
 								</div>
 								<div class="radio">
 								  	<label>
-									    <input type="radio" name="gender" id="optionsRadios2">
+									    <input type="radio" name="gender" id="optionsRadios2" value="0">
 									   	Nữ
 								  	</label>
 								</div>

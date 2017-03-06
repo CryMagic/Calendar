@@ -24,7 +24,7 @@
 									if(rs.next()){
 									
 						%>
-		            <img src="<%=rs.getString("avatar") %>" class="img-circle" alt="User Image">
+		            <img src="dist/img/avatar.png" class="img-circle" alt="User Image">
 		            <%}
 								} catch (Exception e) {
 
