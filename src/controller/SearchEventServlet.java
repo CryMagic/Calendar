@@ -41,15 +41,15 @@ public class SearchEventServlet extends HttpServlet {
 		String contentsearch = request.getParameter("searchEvent");
 		Connection conn = Connect.getConnection();
 		String query = "select * from event where title = '%"+contentsearch+"%'";
-		
+		System.out.println("content search: "+ contentsearch);
 		Statement st;
         try {
             ArrayList al = null;
             ArrayList arr_event = new ArrayList();
             st = conn.createStatement();
-            System.out.println("query " + query);
+            //System.out.println("query " + query);
             ResultSet rs = st.executeQuery(query);
- 
+            System.out.println(rs);
             while (rs.next()) {
                 al = new ArrayList();
                 al.add(rs.getString("title"));

@@ -51,8 +51,7 @@
 					</div>
 					<form action="SearchEventServlet" method="POST">
 					<div class="col-md-10 col-sm-10 col-xs-10">
-						<input type="text" class="form-control"
-							placeholder="Nhập tên sự kiện cần tìm ..."><br />
+						<input type="text" class="form-control" placeholder="Nhập tên sự kiện cần tìm ..." name="searchEvent"><br />
 					</div>
 					<br>
 					<div class="form-group">

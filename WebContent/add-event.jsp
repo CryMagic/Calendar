@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="">
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Sự kiện mới | Quản Lý Lịch</title>
@@ -51,46 +51,41 @@
 	                <img src="dist/img/add-event.png" class="img-responsive" width="40px" alt="">
 	              </div>
 	              <div class="panel-body">
-	                <form class="form-horizontal" method="POST" action="AddEventServlet" name="frmEvent">
+	                <form class="form-horizontal" method="POST" action="AddEventServlet" id="frmEvent" name="frmEvent">
 	                  <div class="form-group">
 	                    <label class="col-sm-2 control-label">Tên sự kiện</label>
 	                    <div class="col-sm-10">
-	                      <input type="text" class="form-control" name="name_event" ng-model="event.name_event" placeholder="Nhập tên sự kiện" ng-required="true">
-	                      <span id="helpBlock2" class="help-block" ng-show="frmEvent.name_event.$error.required">Vui lòng nhập tên sự kiện</span>
+	                      <input type="text" class="form-control" name="name_event" placeholder="Nhập tên sự kiện">        
 	                    </div>
 	                  </div>
 	                  <div class="form-group">
 	                    <label class="col-sm-2 control-label">Thời gian</label>
 	                    <div class="col-sm-5">
 	                      <div class="input-group date form_datetime" data-date="2016-09-16T05:25:07Z" data-date-format="" data-link-field="dtp_input1">
-	                          <input class="form-control" size="16" type="text" value="" readonly name="time_start" ng-model="event.time_start" ng-required="true">
+	                          <input class="form-control" size="16" type="text" value="" readonly name="time_start">
 	                          <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 	                          <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 	                      </div>
-	                      <span id="helpBlock2" class="help-block" ng-show="frmEvent.time_start.$error.required">Vui lòng nhập thời gian bắt đầu sự kiện</span>
 	                      <input type="hidden" id="dtp_input1" value="" /><br/>
 	                    </div>
 	                    <div class="col-sm-5">
 	                      <div class="input-group date form_datetime" data-date="2016-09-16T05:25:07Z" data-date-format="" data-link-field="dtp_input1">
-	                          <input class="form-control" size="16" type="text" value="" readonly name="time_end" ng-model="event.time_end" ng-required="true">
+	                          <input class="form-control" size="16" type="text" value="" readonly name="time_end">
 	                          <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 	                          <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 	                      </div>
-	                      <span id="helpBlock2" class="help-block" ng-show="frmEvent.time_end.$error.required">Vui lòng nhập thời gian kết thúc sự kiện</span>
 	                      <input type="hidden" id="dtp_input1" value="" />
 	                    </div>
 	                  </div>
 	                  <div class="form-group">
 	                    <label class="col-sm-2 control-label">Nơi diễn ra</label>
 	                    <div class="col-sm-6">
-	                      <input type="text" name="address" ng-model="event.address" ng-required="true" class="form-control" placeholder="Thêm nơi diễn ra sự kiện">
-	                      <span id="helpBlock2" class="help-block" ng-show="frmEvent.address.$error.required">Vui lòng nhập nơi diễn ra sự kiện</span>
+	                      <input type="text" name="address" class="form-control" placeholder="Thêm nơi diễn ra sự kiện">
 	                    </div>
 	                  </div>
 	                  <div class="form-group">
 	                    <label class="col-sm-2 control-label">Thêm bạn</label>
 	                    <div class="col-sm-6">
-	                    	
 	                    	<select name="addfriend" class="form-control" id="addfriend">
 	                    		<option value="none">none</option>
 	                    		<%
@@ -107,21 +102,20 @@
 	                    
 	                  </div>
 	                  <div class="form-group">
-									<label class="col-sm-2 control-label">Lặp lại</label>
-									<div class="col-sm-10">
-										<div class="checkbox">
-											<label> <input type="checkbox" data-toggle="modal"
-												data-target=".bs-example-modal-sm">
-											</label>
-										</div>
-									</div>
+							<label class="col-sm-2 control-label">Lặp lại</label>
+							<div class="col-sm-10">
+								<div class="checkbox">
+									<label> 
+										<input type="checkbox" data-toggle="modal" data-target=".bs-example-modal-sm">
+									</label>
 								</div>
+							</div>
+					  </div>
 	                  <div class="form-group">
 	                    <label class="col-sm-2 control-label">Cả ngày</label>
 	                    <div class="col-sm-10">
 	                      <div class="checkbox">
 			                <label>
-			                	
 			                    <input type="checkbox" name="allday" value="0">
 			                </label>
 	                      </div>
@@ -167,8 +161,7 @@
 									<div class="modal-dialog modal-sm" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"
-													aria-label="Close">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 													<span aria-hidden="true">&times;</span>
 												</button>
 												<h4 class="modal-title">Lặp vào các ngày</h4>

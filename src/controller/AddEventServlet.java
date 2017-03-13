@@ -79,8 +79,8 @@ public class AddEventServlet extends HttpServlet {
 		
 		int id_acc = userDao.getId(username);
 		Connect conn = new Connect();
-		String sql = "insert into event(title,start,end,url,allDay,notify,description,address,id_acc,background_color,dow) values('" + title + "','"+start+
-				"','"+end+"','detail-event.jsp?id=','"+AllDay+"','"+notify+"','"+description+"','"+address+"','"+id_acc+"','"+quantam+"','"+ dow +"')";
+		String sql = "insert into event(title,start,endallDay,notify,description,address,id_acc,background_color,dow) values('" + title + "','"+start+
+				"','"+end+"','"+AllDay+"','"+notify+"','"+description+"','"+address+"','"+id_acc+"','"+quantam+"','"+ dow +"')";
 		String err = "";
 		
 		if (title.equals("") || start.equals("")|| end.equals("")) {
@@ -123,25 +123,25 @@ public class AddEventServlet extends HttpServlet {
 				}
 				
 			}
-			else{
+//			else{
 				//Gui tin nhan
 				//Lay SDT tu username
-				String sql2="select phone from account where username='"+username+"'";
-				String phone=null;
-				ResultSet rst=null;
-				try{
-					rst=conn.GetData(sql2);
-					while (rst.next()) {
-						phone =""+rst.getString(1)+"";}
-				SpeedSMSAPI api=new SpeedSMSAPI(accessToken) ;
-				String info=api.getUserInfo();
-				System.out.println(info);
-				SpeedSMSAPI api1=new SpeedSMSAPI(accessToken);
-				String json = "{\"to\": [\""+phone+"\"], \"content\": \""+description+"\", \"sms_type\": 2, \"brandname\":\"\"}";
-				String result = api1.sendSMS(json);
-				System.out.println(result);}
-				catch(Exception e){e.printStackTrace();}
-			}
+//				String sql2="select phone from account where username='"+username+"'";
+//				String phone=null;
+//				ResultSet rst=null;
+//				try{
+//					rst=conn.GetData(sql2);
+//					while (rst.next()) {
+//						phone =""+rst.getString(1)+"";}
+//				SpeedSMSAPI api=new SpeedSMSAPI(accessToken) ;
+//				String info=api.getUserInfo();
+//				System.out.println(info);
+//				SpeedSMSAPI api1=new SpeedSMSAPI(accessToken);
+//				String json = "{\"to\": [\""+phone+"\"], \"content\": \""+description+"\", \"sms_type\": 2, \"brandname\":\"\"}";
+//				String result = api1.sendSMS(json);
+//				System.out.println(result);}
+//				catch(Exception e){e.printStackTrace();}
+//			}
 		}
 		//gui mail cho chinh minh
 		String sql3="select email from account where username='"+username+"'";

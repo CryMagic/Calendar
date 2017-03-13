@@ -81,7 +81,7 @@ public class Calender_Event extends HttpServlet {
 				java.sql.Timestamp start = result.getTimestamp("start");
 				java.sql.Timestamp end = result.getTimestamp("end");
 				boolean allDay = result.getBoolean("allDay");
-				String suburl = result.getString("url");
+				String suburl = "detail-event.jsp?id=";
 				String url = suburl + String.valueOf(id);
 				String description = result.getString("description");
 				String backgroundColor=result.getString("background_color");

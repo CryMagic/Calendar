@@ -3,7 +3,7 @@
     <%@ page import="java.sql.*"%>
 <%@ page language="java" import = "connect.*,java.util.*" session="true" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="">
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Admin</title>
@@ -66,22 +66,21 @@
 	            <div class="panel-heading">Thêm người dùng</div>
 	            <div class="panel-body">
 	                        <div class="box box-primary">
-	            <form method="POST" action="AddUserServlet" name="frmAdmin">
+	            <form id="add-admin" method="POST" action="AddUserServlet" name="frmAdmin">
 	              <div class="box-body">
 	                <div class="form-group">
 	                  <label>Tên đăng nhập</label>
-	                  <input type="text" class="form-control" name="username" placeholder="Nhập UserName" ng-model="user.username" ng-required="true">
-	                  <span id="helpBlock2" class="help-block" ng-show="frmAdmin.username.$error.required">Vui lòng nhập username</span>
+	                  <input type="text" class="form-control" name="username" placeholder="Nhập UserName">
+	                  
 	                </div>
 	                <div class="form-group">
 	                  <label>Mật khẩu</label>
-	                  <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu" ng-model="user.password" ng-required="true">
-	                  <span id="helpBlock2" class="help-block" ng-show="frmAdmin.password.$error.required">Vui lòng nhập password</span>
+	                  <input type="password" id="password" class="form-control" name="password" placeholder="Nhập mật khẩu">
 	                </div>
 	                <div class="form-group">
 	                  <label>Nhắc lại mật khẩu</label>
 	                  <input type="password" class="form-control" name="re_password" placeholder="Nhập lại mật khẩu" ng-model="user.re_password" ng-required="true">
-	                  <span id="helpBlock2" class="help-block" ng-show="frmAdmin.re_password.$error.required">Vui lòng xác nhận lại password</span>
+	                  
 	                </div>
 	                <label>Giới tính</label>
 	                <div class="radio">
@@ -93,19 +92,15 @@
 	                </div>
 	                <div class="form-group">
 	                  <label>Tên đầy đủ</label>
-	                  <input type="text" class="form-control" name="fullname" placeholder="Nhập tên người dùng" ng-model="user.fullname" ng-required="true">
-	                  <span id="helpBlock2" class="help-block" ng-show="frmAdmin.fullname.$error.required">Vui lòng nhập tên đầy đủ của bạn</span>
+	                  <input type="text" class="form-control" name="fullname" placeholder="Nhập tên người dùng">
 	                </div>
 	                <div class="form-group">
 	                  <label>Email</label>
-	                  <input type="email" class="form-control" name="email" placeholder="Nhập email" ng-model="user.email" ng-required="true">
-	                  <span id="helpBlock2" class="help-block" ng-show="frmAdmin.email.$error.required">Vui lòng nhập Email của bạn</span>
-	                  <span id="helpBlock2" class="help-block" ng-show="frmAdmin.email.$error.email">Định dạng email chưa đúng</span>
+	                  <input type="email" class="form-control" name="email" placeholder="Nhập email">
 	                </div>
 	                <div class="form-group">
 	                  <label>Số điện thoại</label>
-	                  <input type="text" class="form-control" name="phone" placeholder="Nhập số điện thoại" ng-model="user.phone" ng-required="true">
-	                  <span id="helpBlock2" class="help-block" ng-show="frmAdmin.phone.$error.required">Vui lòng nhập số điện thoại</span>
+	                  <input type="text" class="form-control" name="phone" placeholder="Nhập số điện thoại">
 	                </div>
 	                <label>Quyền</label>
 	                <div class="radio">
@@ -152,6 +147,8 @@
 	<!-- AdminLTE App -->
 	<script src="dist/js/app.min.js"></script>
 	<script src="dist/js/angular.min.js"></script>
+	<script src="dist/js/jquery.validate.js"></script>
+	<script src="dist/js/script-validate.js"></script>
 	<script>
 	  $(function () {
 	    $("#example1").DataTable();

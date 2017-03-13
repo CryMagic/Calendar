@@ -39,9 +39,9 @@
         </a>
 
         <div class="navbar-custom-menu">
-          <form class="navbar-form navbar-left text-center" style="margin-left:auto;margin-right:auto">
+          <form action="SearchEventServlet" method="POST" class="navbar-form navbar-left text-center" style="margin-left:auto;margin-right:auto">
 	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Nhập từ khóa tìm kiếm">
+	          <input type="text" class="form-control" placeholder="Nhập từ khóa tìm kiếm" name="searchEvent">
 	        </div>
 	        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 	      </form>
